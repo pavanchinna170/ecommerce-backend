@@ -75,7 +75,7 @@ const userLogin = async(req, res)=>{
             email: user.email
         }
 
-        const token = jwt.sign(payload, JWT_SECRET, {expiresIn: JWT_EXPIRES_IN})
+        const token = jwt.sign(payload, JWT_SECRET, {expiresIn: "1d"})
 
         res.status(201).json({
             message: "Login Successfull",
