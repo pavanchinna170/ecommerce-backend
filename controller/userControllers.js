@@ -7,15 +7,16 @@ const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN
 
 const userRegister = async(req, res)=>{
     try{
-        const {username, email, password, confirmpassword} = req.body
+        const {username, email, password, confirmPassword} = req.body
 
-        if(!username || !email || !password || !confirmpassword){
-            return res.status(400).json({message: "All Fields are required"})
-        }
+        if (!username || !email || !password || !confirmPassword) {
+            return res.status(400).json({ message: "All Fields are required" })
+            }
 
-        if(password !== confirmpassword){
-            return res.status(400).json({message: "Password does not match"})
-        }
+            if (password !== confirmPassword) {
+            return res.status(400).json({ message: "Password does not match" })
+            }
+
 
         if(password.length < 8){
             return res.status(400).json({message: "Password must be at least 8 char"})
